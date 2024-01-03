@@ -19,11 +19,7 @@ export default function Home() {
             setLoading(true);
             try {
                 const response = await axios.get('http://localhost:2001/images');
-                if (response.data.etat === 'ok') {
-                    setDatas(response.data.url);
-                } else {
-                    setError('Erreur lors du chargement de l\'image');
-                }
+                setDatas(response.data.url);
             } catch (err) {
                 setError('Erreur lors de la requête au serveur');
             } finally {
